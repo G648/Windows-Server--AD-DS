@@ -39,3 +39,30 @@ ________________________________________________________________________________
 	-voce devera linkar a gpo no grupo de usuarios pra poder funcionar 
 		
 		TEM COMO BLOQUAR TUDO QUE ESTIVER NO COMPUTADOR
+________________________________________________________________________________________________________
+
+			GPMC.MSC (abre as configurações de políticas de grupo)
+	 
+	 BLOQUANDO PROXY:
+
+	-ir em gorup police manegement
+		-clicar em group police objects e criar uma nova GPO
+		-nomear como PROXY ou CONFIGURAÇÃO DE PROXY
+	-clicar em edit...
+	-ir em user configuration 
+		-preferences 
+			-windows settings 
+				-registry
+				-clicar em new
+				-clicar em registry item 
+	-após clicar, irá aparecer um pop-up. Clicar em (...)
+	-clicar em HKEY_CURRENT_USER	
+		-clicar em SOFTWARE
+			-clicar em Microsoft
+				-clicar em windows
+					-clicar em currentVersion
+						-clicar em internet settings
+						-clicar em select
+	PARA BLOQUEAR A CONFIGURAÇÃO DE PROXY NO NAVEGADOR 
+		-voce devera ir em edit...
+		
