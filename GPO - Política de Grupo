@@ -1,1 +1,41 @@
->
+> CRIAÇÃO DE GPOs (política de grupo):
+	-conteiners (O.U)
+GPO CENTRALIZADA : manda informações para o seu dominio, enviando os dados para todas as 
+	OUs.
+GPO DESCENTRALIZADA: envia as informaçãoes de O.U por O.U.
+
+	-ir em group police manegement para configurar as politicas de GPO
+	- a DEFAULT DOMAIN POLICY é o mesmo nivel hierarquico de outras O.Us
+Fazendo com que todas as O.U fazem parte da GPO
+
+	-EDITAR A POLITICA DE GRUPO 
+		- ir em gpo e clicar em edit...
+		- seguir o mesmo nivel hierarquico para conseguir editar alguma coisa 
+		- clicar duas vezes em cima do que voce deseja editar 
+		- EDITE
+		-entrar no cmd e dar gpupdate /force
+	- entrar no windows 10 
+	- tem vezes que tem que mudar o DNS para que de certo (as vezes volta para o default)
+	- se voce quiser determinar um limite de tentativas voce tera que editar em 
+ACCOUNT LOCKOUT POLICY	
+	- se a conta for bloqueada, apenas nos adm de rede poderemos desbloquear a conta
+		- ir no AD e selecionar o usuario que foi bloquado e clicar em unlock account
+	-Se voce quiser encontrar um usario voce tera que ir no seu dominio e clicar em find 
+assim voce consegue encontrar o usuario que voce quiser 
+	- se quiser mudar a senha de um usuario, voce deve clicar em cima de um usuario e clicar 
+em change password e trocar a senha 
+________________________________________________________________________________________________________
+ 	CRIANDO UMA GPO:
+	-ir em group police manegement
+	-clicar na O.U de group police object e clicar em novo 
+		-após isso clicar em new e clicar em new GPO 
+		-colocar o nome do que voce for criar (blqueio do painel de controle)
+	-clicar em editar na gpo que voce tinha criado 	
+		-ir em polices na configuração de usuario 
+		-administrative templates 
+		-clicar em control panel
+	- o nome devera ser "bloqueio do painel de controle"
+	
+	-voce devera linkar a gpo no grupo de usuarios pra poder funcionar 
+		
+		TEM COMO BLOQUAR TUDO QUE ESTIVER NO COMPUTADOR
