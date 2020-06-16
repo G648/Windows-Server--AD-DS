@@ -1,1 +1,129 @@
->
+> ACTIVE DIRECTORY - AD DS (Domain Service) gpupdate /force (atualizar o computador)
+
+-ferramenta da microsoft utilizada para gerenciamento de 
+usuarios de rede.
+-domínio é uma unidade admistritativa máxima do serviço de um 
+diretório (principal unidade funcional  do AD)
+
+instalar o WINDOWS SERVER 2016
+
+ao criar o ad ds ele cria um banco de dados 
+
+quando voce junta dois ou mais dominios raiz 
+ele acaba virando uma floresta (formada por arvores)
+
+arvores ( coleção de um ou mais dominios de dns )
+floresta ( conjunto de um ou mais arvores )
+
+grupo de segurança : serve pra poder acessar as coisas
+grupo de distribuição: serve pra grupo de email
+__________________________________________________________________
+
+-mudar o nome do computador quando instalar o win server 
+-colocar o ip 192.168.10.10 	HOST-ONLY			
+	   dns 192.168.10.10
+
+NETBIOS NAME ADDS : GUILHERMECEZAR.LOCAL
+NOME DO PC: GUILHERME-SERVER
+
+após instalar o win server ir em:
+	- add roles and features 
+		-next
+	-cliclar em ROLE-BASED
+		-next
+	-selecionar a primeira opção 
+		-next
+	-instalar o ad ds e adicionar os features
+		-next
+	-next
+	-next
+	-install
+
+agora precisa promover o ad ds para um domain control, 
+ir na bandeira e promover ele como domain control 
+	-clicar em add a new forest
+		-colocar seu nome e sobrenome .local
+			-next
+	-deixar tudo como está, apenas colocar a senha. 
+		-next
+	-next
+	-next
+	-next (tem como fazer a instalação através do 
+powershell)
+	-install 
+
+ir em tools e clicar em users 
+	-clicar no seu nome (dominio)
+
+	-ir em users and cumputers 
+		-clicar em computers 
+
+Para adicionar um novo computador, voce devera subir uma nova maquina virtual 
+windows, de preferencia em host-only.
+
+ao subir o windows, voce deve alterar o nome da maquina e o ip e dns (com o servidor win)
+	-colocar a maquina windows 10 em modo domínio 
+	-colocar no seu dominio e com acesso \Administrator e colocar a senha do domínios que voce tinha criando no 
+windows server 
+
+ao ligar o computador, ir em outro usuario e entrar como adm
+	-ver se o computador conseguiu se conectar com o domínio
+
+ANTES DE FAZER A INSTALAÇÃO DO AD, COLOCAR O IP FIXO JÁ 
+
+
+
+
+OBJETOS DO ACTIVE DIRECTORY--------------------->
+-------------------->  OBJETOS: são recursos de redes gerenciados pelo AD
+				-usuários, computadores, impressoras, etc. são tipos de 
+				objetos
+			-usuarios: é o objeto que guarda as informações do usuario.
+			-grupo de usuarios: um conjunto de usuarios, computadores.
+			-grupo de usuarios no AD: simplifica as permissões dadas a um usuario 
+						 ao invés disso ele permite que um grupo de usuarios 
+						 possam fazer determinada coisa.
+			-GRUPO DE DOMINIO LOCAL: mercado de trabalho usa.
+
+	-grupo de segurança: são grupos criados para gerenciamento de acesso 
+	
+
+	-os objetos computadores devem estar cadastrados no AD (igual o windows 10 que esta 
+		inserido no servidor AD)
+
+ MAC: apenas IP fixo ao cadastrar no AD 
+
+	-contato: é um objeto para guardar informações como, email, telefone, etc.
+
+			-CRIAÇÃO DE UMA O.U.-
+
+--------------> tools 
+		-ad user and cumputers 
+		-clicar em users 
+			-criar um novo contato (contact)
+				-colocar o nome e o display (ambos como o mesmo nome)
+		-geralmente quando vai criar um usuario, coloca-se o email 
+		
+---------------> clicar no dominio com o botão direito 
+		-new
+			-clicar em O.U (organization unit)
+			-nomear com o nome de grupo, professores, alunos, computadores, etc
+		-se quiser excluir uma OU, clicar em view e clicar com o botao direito 
+			-advanced units
+			-propriedades 
+				-desmarcar a opção de exclusaõ acidental 
+		-criar uma O.U com o mesmo nome do dominio.
+________________________________________________________________________________________________________
+	
+	CRIAÇÃO DE USUARIOS:
+	-ir em AD user and computers 
+		-ir na OU users 
+			- new user (colocar as informações necessarias para criação de users)
+	-clicar duas vezes em cima do usuario que voce quiser e completar as informações 
+		- ir em account e verificar se a criação dos usuarios foi um sucesso 
+	-ir no windows 10 (máquina)
+		-entrar em outro usuario e colocar o usuario que voce tinha criado 
+	-se caso voce tiver colocado uma opção pra nunca mudar senha, voce deverá ter que
+trocar a senha e reiniciar a maquina duas vezes
+		-se mesmo assim nao foi, voce tera que dar um change password nos usuarios
+	CONTA DESABILITADA: voce devera ir no windows server e clicar na opção de enable account
